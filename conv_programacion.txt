@@ -1,3 +1,40 @@
+Pront: Actúa como un desarrollador Senior en Java. Implementa la clase Order y todos los metodos especificados en el siguiente archivo, ademas el proyecto cuenta con este prototipado puedes revisarlo y generar la implementacion completa
+
+¡Entendido! He revisado los archivos que has subido. Veo que tienes una estructura de proyecto Maven clara y que Item es una interfaz, no una clase concreta, lo cual es un detalle importante para la implementación. También veo que Product usa un id (long) para identificarse.
+Como desarrollador Senior, aquí tienes la implementación robusta y completa. Debes crear/modificar dos archivos principalmente: IncorrectItemException.java (que no estaba en tu lista pero es obligatoria según la especificación) y Order.java.
+1. Crear la Excepción
+Primero, necesitas crear este archivo en el paquete correcto, ya que el método addItem debe lanzar esta excepción si los datos son incorrectos.
+Archivo: src/main/java/es/upm/grise/profundizacion/order/IncorrectItemException.java
+
+Java
+
+
+package es.upm.grise.profundizacion.order;
+
+public class IncorrectItemException extends Exception {
+    
+    // Es buena práctica añadir un serialVersionUID en excepciones serializables
+    private static final long serialVersionUID = 1L;
+
+    public IncorrectItemException(String message) {
+        super(message);
+    }
+}
+
+
+2. Implementación de Order.java
+Aquí tienes la implementación lógica. He respetado el prototipo que subiste, pero he tenido que añadir throws IncorrectItemException a la firma del método addItem. Esto es obligatorio en Java si la excepción es verificada (checked), o de lo contrario el código no compilaría.
+
+Nota sobre la lógica:
+Como Product no tiene el método equals implementado en el archivo que me pasaste, compararé los productos usando su id (disponible mediante getId()).
+
+
+Como Item es una interfaz, usaremos sus métodos get y set para manipular los datos.
+Archivo: src/main/java/es/upm/grise/profundizacion/order/Order.java
+
+Java
+
+
 package es.upm.grise.profundizacion.order;
 
 import java.util.ArrayList;
@@ -79,3 +116,12 @@ public class Order {
         return p1.getId() == p2.getId();
     }
 }
+
+
+Pasos para integrarlo en tu proyecto:
+Crea el archivo IncorrectItemException.java en la misma carpeta que Order.java.
+Reemplaza el contenido de Order.java con el código de arriba.
+No necesitas modificar Product.java ni Item.java (la lógica se encarga de manejarlos tal cual son).
+Realiza el commit de estos cambios siguiendo el Paso 6 de tus instrucciones (git add, git commit -m "Implementación de lógica Order").
+Guarda esta conversación en conv_programacion.txt.
+¿Quieres que proceda ahora a generar el código de los tests unitarios (OrderTest.java) para el Paso 7?
