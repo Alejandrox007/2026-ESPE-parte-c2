@@ -1,3 +1,13 @@
+¡Excelente! Vamos con el Paso 7: Confeccionar las pruebas de unidad usando JUnit.
+Como desarrollador Senior, para asegurar que el código es robusto, no necesitamos librerías externas complejas (como Mockito) si no estamos seguros de que las tengas instaladas. Crearemos una implementación simple de Item (un "Stub") dentro de la propia clase de test para simular los artículos. Esto garantiza que el test funcionará al 100% con lo que tienes.
+Aquí tienes el código completo para OrderTest.java. Este código cubre todos los casos de la especificación.
+
+Código para OrderTest.java
+Copia y pega este contenido en: src/test/java/es/upm/grise/profundizacion/order/OrderTest.java
+
+Java
+
+
 package es.upm.grise.profundizacion.order;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -127,3 +137,9 @@ public class OrderTest {
         assertEquals(2, order.getItems().size(), "Deberían haber 2 elementos porque el precio es distinto");
     }
 }
+
+
+Instrucciones para continuar 
+Una vez hayas guardado el archivo OrderTest.java:
+Ejecuta los tests en tu IDE (clic derecho en el archivo -> "Run Tests") para asegurar que todo sale en verde (✅).
+Paso 8: Crea el archivo conv_prueba.txt con esta parte de nuestra conversación.
